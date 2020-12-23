@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	
+</head>
+<body>
+	<center>
+		<select name="" id="cimg" oninput="showVal(this.value)">
+			<option value="lion">lion</option>
+			<option value="fox">fox</option>
+			<option value="panda">panda</option>
+			<option value="rabbit">rabbit</option>
+		</select>
+		<br>
+		<br>
+		<div class=""><img id="img" src="" alt="" width="400">
+			<p id="text"></p></div>
+		<p>Ширина рисунка: <input type="range" min="1" max="10" id="width" 
+     oninput="widthPic()" value="5"></p>
+     	<p>Высота рисунка: <input type="range" min="1" max="10" id="height" 
+     oninput="heightPic()" value="5"></p>
+     <p>Толщина рамки: <input type="range" min="1" max="10" id="borderPic" 
+     oninput="borderPic()" value="1"></p>
+     <p width="200px">Текст под картинкой : <input type="text"  id="imgText"><input type="button" value="Заменить" onclick="imgText()"></p>
+	</center>
+	<script>
+    
+    var cimg = document.getElementById("cimg").value;
+        document.getElementById("img").src = cimg + ".jpg";
+        function showVal(newVal){
+          document.getElementById("img").src = newVal+ ".jpg";
+        }
+        function widthPic(){
+        	width = document.getElementById("width").value;
+        	img = document.getElementById("img");
+        	img.width = 300 + 20*width;
+        }
+        function heightPic(){
+        	height = document.getElementById("height").value;
+        	img = document.getElementById("img");
+        	img.height = 300 + 20*height;
+        }
+        function borderPic(){
+        	bodrerBody = document.getElementById("img");
+    		borderThinkless = document.getElementById("borderPic").value;
+    		bodrerBody.style.border = borderThinkless +"px solid";
+        }
+        function imgText(){
+        	imgTexts = document.getElementById("imgText").value;
+        	text = document.getElementById("text");
+        	text.innerHTML=imgTexts;
+        }
+</script>
+</body>
+</html>
